@@ -4,7 +4,7 @@ import datetime
 class coll_company_master(mongoengine.DynamicDocument):
     Industry = mongoengine.StringField()
     Symbol = mongoengine.StringField()
-    ISIN_1 = mongoengine.StringField()
+    ISIN = mongoengine.StringField()
     Series = mongoengine.StringField()
     Company_1 = mongoengine.StringField()
     #meta = {"allow_inheritance":True}
