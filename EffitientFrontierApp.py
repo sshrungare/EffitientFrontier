@@ -85,14 +85,15 @@ class EffietientFrontier:
         return df
 
     @staticmethod
-    def get_min_vola_max_shapre(df):
+    def get_effitient_portfolio(df):
 
         # find min Volatility & max sharpe values in the dataframe (df)
         min_volatility = df['Volatility'].min()
         max_sharpe = df['Sharpe Ratio'].max()
+        max_returns = df['Returns'].max()
 
         # use the min, max values to locate and create the two special portfolios
         sharpe_portfolio = df.loc[df['Sharpe Ratio'] == max_sharpe]
-        min_variance_port = df.loc[df['Volatility'] == min_volatility]
-
-        return (min_variance_port.T,sharpe_portfolio.T)
+        min_variance_portfolio = df.loc[df['Volatility'] == min_volatility]
+        max_returns_portfolio = df.loc[df['Returns'] == max_returns]
+        return (min_variance_portfolio.T,sharpe_portfolio.T,max_returns_portfolio.T)
